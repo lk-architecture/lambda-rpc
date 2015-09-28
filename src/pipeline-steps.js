@@ -44,8 +44,9 @@ export function succeed (lambdaContext, result) {
 }
 export function fail (lambdaContext, error) {
     if (!is(RpcError, error)) {
-        console.log(`Internal error:\n${error}`);
+        console.log(`Internal server error: ${error.message}`);
+        console.log(error.stack);
         error = new RpcError(500, "Internal server error");
     }
-    context.succeed({error});
+    lambdaContext.succeed({error});
 }
