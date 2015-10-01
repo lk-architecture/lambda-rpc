@@ -32,3 +32,5 @@ export default class LambdaRpc {
     }
 
 }
+
+export {default as RpcError} from "./lib/rpc-error";
