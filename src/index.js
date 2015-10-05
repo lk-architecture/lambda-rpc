@@ -6,7 +6,7 @@ import * as ps from "./pipeline-steps";
 export default class LambdaRpc {
 
     constructor (getUser) {
-        this._getUser = getUser || always(null);
+        this._getUser = getUser || always(BPromise.resolve(null));
         this._methods = {};
     }
 
